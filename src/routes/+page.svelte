@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Text from '$lib/components/Text.svelte';
+</script>
+
+<Text variant='h1' label="h1" />
+<Text variant='h2' label="h2" />
+<Text variant='p' label="p" />
+<Text variant='price' label="price" />
+
+<style>
+</style>
