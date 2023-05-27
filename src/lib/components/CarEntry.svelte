@@ -9,7 +9,7 @@
 	export let city = 'City';
 	export let state = 'State';
 	export let zip = '00000';
-	export let price = 'Car price';
+	export let price = '9999';
 
 	let isFavorite = false;
 	const formattedPrice = new Intl.NumberFormat('en-US', {
@@ -49,7 +49,6 @@
 
 <style>
 	.container {
-		min-width: 38.2rem;
 		height: 17.7rem;
 		border-radius: 0.6rem;
 		padding-top: 1.5rem;

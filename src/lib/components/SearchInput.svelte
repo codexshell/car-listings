@@ -5,16 +5,23 @@
 	import threeDots from '$lib/images/three-dots.svg';
 
 	export let filterOptions = [];
+	export let top = '0';
 
+	const topRem = `${top / 10}rem`;
 	let showModal = false;
+
 	const toggleModal = () => {
 		showModal = !showModal;
 	};
+	const hideModal = () => {
+		showModal = false;
+	};
 </script>
 
-<div class="container">
+<div style="--top: {topRem}" class="container">
 	<div class="input-wrapper">
-		<input type="text" /> <button class="search-btn"><img src={search} alt="" /></button>
+		<input type="text" />
+		<button on:click={hideModal} class="search-btn"><img src={search} alt="" /></button>
 	</div>
 	<button on:click={toggleModal} class="menu-btn">
 		<img src={threeDots} alt="menu" />
@@ -43,10 +50,10 @@
 <style>
 	.container {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		gap: 1.5rem;
 		position: relative;
+		margin-top: var(--top);
 	}
 
 	.input-wrapper {
@@ -89,9 +96,9 @@
 		background-color: white;
 		position: absolute;
 		top: 0;
-		right: 0;
+		left: 0;
 		margin-top: 5rem;
-		margin-right: 5rem;
+		margin-left: 1rem;
 		box-shadow: 1.1rem 1.8rem 5.4rem rgba(0, 0, 0, 0.11);
 		border-radius: 0.6rem;
 		padding: 3rem;
@@ -115,5 +122,6 @@
 
 	label {
 		font-size: 1.8rem;
+		cursor: pointer;
 	}
 </style>
