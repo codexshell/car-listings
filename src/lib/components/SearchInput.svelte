@@ -4,6 +4,8 @@
 	import search from '$lib/images/search.svg';
 	import threeDots from '$lib/images/three-dots.svg';
 
+	import { clickOutside } from '$lib/utils/clickOutside';
+
 	export let filterOptions = [];
 	export let top = '0';
 
@@ -34,6 +36,8 @@
 				duration: 250
 			}}
 			class="modal"
+			on:outclick={hideModal}
+			use:clickOutside
 		>
 			{#each filterOptions as option}
 				<div class="option-wrapper">
