@@ -49,7 +49,7 @@
 
 <style>
 	.container {
-		height: 17.7rem;
+		height: fit-content;
 		border-radius: 0.6rem;
 		padding-top: 1.5rem;
 		padding-left: 1.8rem;
