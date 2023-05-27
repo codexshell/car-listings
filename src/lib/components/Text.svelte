@@ -10,7 +10,7 @@
 {:else if variant === 'p'}
 	<p>{label}</p>
 {:else if variant === 'price'}
-	<span class="price">${label}</span>
+	<span class="price">{label}</span>
 {/if}
 
 <style>
@@ -38,5 +38,8 @@
 		font-weight: 400;
 		font-size: 2.4rem;
 		line-height: 3rem;
+	}
+
+	@media only screen and (min-width: 1280px) {
 	}
 </style>
