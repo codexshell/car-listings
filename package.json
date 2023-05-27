@@ -23,5 +23,8 @@
 		"svelte": "^3.54.0",
 		"vite": "^4.3.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@csstools/normalize.css": "^12.0.0"
+	}
 }
