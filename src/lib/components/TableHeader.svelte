@@ -2,7 +2,7 @@
 	export let headers = [];
 </script>
 
-<div class="table-header" style="--cols: {headers.length}">
+<div class="table-header">
 	{#each headers as header}
 		<div class="header">{header}</div>
 	{/each}
@@ -12,8 +12,9 @@
 	.table-header {
 		height: 5.5rem;
 		background-color: #008ad8;
-		display: grid;
-		grid-template-columns: repeat(var(--cols), 1fr);
+		display: flex;
+		justify-content: space-between;
+		border-radius: 0.6rem;
 	}
 
 	.header {

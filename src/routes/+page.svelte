@@ -2,10 +2,10 @@
 	import Text from '$lib/components/Text.svelte';
 	import SearchInput from '$lib/components/SearchInput.svelte';
 	import CarEntry from '$lib/components/CarEntry.svelte';
-	// import TableHeader from '$lib/components/TableHeader.svelte';
+	import TableHeader from '$lib/components/TableHeader.svelte';
 
 	const filterOptions = ['New cars', 'Used cars', 'Dealership', 'For sale by owner'];
-	// const tableHeaders = ['Car details', 'Location', 'Price', 'Action'];
+	const tableHeaders = ['Car details', 'Location', 'Price', 'Action'];
 	const carCollection = [
 		{
 			name: '2017 Toyota Highlander V4',
@@ -58,21 +58,28 @@
 </script>
 
 <main>
-	<Text label="Available Cars" variant="h1" />
-	<Text top="7" label="There are 15 cars that match your criteria" variant="p" />
-	<SearchInput top="26" {filterOptions} />
+	<div class="wrapper">
+		<Text label="Available Cars" variant="h1" />
+		<Text top="7" label="There are 15 cars that match your criteria" variant="p" />
+		<div class="search-wrapper">
+			<SearchInput top="26" {filterOptions} />
+		</div>
 
-	<div class="collection-wrapper">
-		{#each carCollection as car}
-			<CarEntry
-				name={car.name}
-				street={car.street}
-				city={car.city}
-				state={car.state}
-				zip={car.zip}
-				price={car.price}
-			/>
-		{/each}
+		<div class="table-header-wrapper">
+			<TableHeader headers={tableHeaders} />
+		</div>
+		<div class="collection-wrapper">
+			{#each carCollection as car}
+				<CarEntry
+					name={car.name}
+					street={car.street}
+					city={car.city}
+					state={car.state}
+					zip={car.zip}
+					price={car.price}
+				/>
+			{/each}
+		</div>
 	</div>
 </main>
 
@@ -85,5 +92,34 @@
 
 	.collection-wrapper {
 		margin-top: 6.8rem;
+	}
+
+	.wrapper {
+		max-width: 1440px;
+		margin: 0 auto;
+	}
+
+	.table-header-wrapper {
+		display: none;
+	}
+
+	@media only screen and (min-width: 1280px) {
+		main {
+			padding: 9.2rem 10rem;
+		}
+
+		.collection-wrapper {
+			margin: 0;
+		}
+
+		.table-header-wrapper {
+			display: block;
+			margin-top: 5.1rem;
+		}
+
+		.search-wrapper {
+			display: flex;
+			justify-content: right;
+		}
 	}
 </style>
